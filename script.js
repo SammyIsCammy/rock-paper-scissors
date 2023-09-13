@@ -1,4 +1,4 @@
-let choices = ['Rock', 'Paper', 'Scissors'];
+let choices = ['rock', 'paper', 'scissors'];
 
 // Creating a function that randomly returns Rock, Paper, Scissors. This will act as the computer's choice against the user
 function getComputerChoice() {
@@ -25,4 +25,14 @@ function playRound(playerSelection, computerSelection) {
     }
 };
 
-console.log(playRound(getComputerChoice(), getComputerChoice()));
+
+function game() {
+    let playerChoice = prompt("Rock, Paper, or Scissors?!").toLowerCase();
+    console.log(playRound(playerChoice, getComputerChoice()));
+    console.log(playRound(playerChoice, getComputerChoice()));
+    console.log(playRound(playerChoice, getComputerChoice()));
+    console.log(playRound(playerChoice, getComputerChoice()));
+    console.log(playRound(playerChoice, getComputerChoice()));
+}
+
+game();
