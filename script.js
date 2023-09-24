@@ -26,6 +26,7 @@ function playRound(playerSelection, computerSelection) {
 };
 
 
+
 // function game() {
 //     let playerChoice = prompt("Rock, Paper, or Scissors?!").toLowerCase();
 //     console.log(playRound(playerChoice, getComputerChoice()));
@@ -45,45 +46,57 @@ document.addEventListener("DOMContentLoaded", function() {
     let playerScoreVal = 0;
     let computerScore = document.getElementById("computer-score");
     let computerScoreVal = 0;
+    
+    function getRoundWinner(result) {
+        if (result === "You win!") {
+            playerScoreVal+=1;
+            playerScore.innerText = playerScoreVal;
+        } else if (result === "Computer wins!") {
+            computerScoreVal+=1;
+            computerScore.innerText = computerScoreVal;
+        }
+    }
+
+    function endGame() {
+        if (playerScoreVal === 5 || computerScoreVal === 5) {
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorsBtn.disabled = true;
+        }
+    }
 
     rockBtn.addEventListener("click", function() {
         let computer = getComputerChoice();
         let result = playRound(choices[0], computer);
-        console.log(result);
-        if (result === "You win!") {
-            playerScoreVal++;
-            playerScore.innerText = playerScoreVal;
-            //  console.log(playerScoreVal);
-        } else if (result === "Computer wins!") {
-            computerScoreVal++;
-            computerScore.innerText = computerScoreVal;
-        }
+
+        getRoundWinner(result);
+        endGame();
     })
+
     paperBtn.addEventListener("click", function() {
         let computer = getComputerChoice();
         let result = playRound(choices[1], computer);
-        console.log(result);
-        if (result === "You win!") {
-            playerScoreVal++;
-            playerScore.innerText = playerScoreVal;
-            //  console.log(playerScoreVal);
-        } else if (result === "Computer wins!") {
-            computerScoreVal++;
-            computerScore.innerText = computerScoreVal;
-        }
+
+        getRoundWinner(result);
+        endGame();
     })
+
     scissorsBtn.addEventListener("click", function() {
         let computer = getComputerChoice();
         let result = playRound(choices[2], computer);
-        console.log(result);
-        if (result === "You win!") {
-            playerScoreVal++;
-            playerScore.innerText = playerScoreVal;
-            //  console.log(playerScoreVal);
-        } else if (result === "Computer wins!") {
-            computerScoreVal++;
-            computerScore.innerText = computerScoreVal;
-        }
+
+        getRoundWinner(result);
+        endGame();
     })
+
+    // WHY THIS IF STATEMENT SHOULD NOT BE HERE:
+    // it is within the main DOMContentLoaded event listener, therefore, it will only be called
+    // one time, when the event listener is hit. You'll want to put this in the click event listeners
+    // instead. That way, it is called everytime the button is clicked and the scores are updated.
+    // if (playerScoreVal === 5 || computerScoreVal === 5) {
+    //     rockBtn = null;
+    //     paperBtn = null;
+    //     scissorsBtn = null;
+    // }
 
 })
