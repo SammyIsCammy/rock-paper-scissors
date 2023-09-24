@@ -25,19 +25,6 @@ function playRound(playerSelection, computerSelection) {
     }
 };
 
-
-
-// function game() {
-//     let playerChoice = prompt("Rock, Paper, or Scissors?!").toLowerCase();
-//     console.log(playRound(playerChoice, getComputerChoice()));
-//     console.log(playRound(playerChoice, getComputerChoice()));
-//     console.log(playRound(playerChoice, getComputerChoice()));
-//     console.log(playRound(playerChoice, getComputerChoice()));
-//     console.log(playRound(playerChoice, getComputerChoice()));
-// }
-
-// game();
-
 document.addEventListener("DOMContentLoaded", function() {
     let rockBtn = document.getElementById("rock-btn");
     let paperBtn = document.getElementById("paper-btn");
@@ -46,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let playerScoreVal = 0;
     let computerScore = document.getElementById("computer-score");
     let computerScoreVal = 0;
+    let tiesScore = document.getElementById("ties-score");
+    let tiesScoreVal = 0;
     
     function getRoundWinner(result) {
         if (result === "You win!") {
@@ -54,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function() {
         } else if (result === "Computer wins!") {
             computerScoreVal+=1;
             computerScore.innerText = computerScoreVal;
+        } else {
+            tiesScoreVal+=1;
+            tiesScore.innerText = tiesScoreVal;
         }
     }
 
