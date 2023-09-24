@@ -41,10 +41,49 @@ document.addEventListener("DOMContentLoaded", function() {
     let rockBtn = document.getElementById("rock-btn");
     let paperBtn = document.getElementById("paper-btn");
     let scissorsBtn = document.getElementById("scissors-btn");
+    let playerScore = document.getElementById("player-score");
+    let playerScoreVal = 0;
+    let computerScore = document.getElementById("computer-score");
+    let computerScoreVal = 0;
 
     rockBtn.addEventListener("click", function() {
         let computer = getComputerChoice();
         let result = playRound(choices[0], computer);
         console.log(result);
+        if (result === "You win!") {
+            playerScoreVal++;
+            playerScore.innerText = playerScoreVal;
+            //  console.log(playerScoreVal);
+        } else if (result === "Computer wins!") {
+            computerScoreVal++;
+            computerScore.innerText = computerScoreVal;
+        }
     })
+    paperBtn.addEventListener("click", function() {
+        let computer = getComputerChoice();
+        let result = playRound(choices[1], computer);
+        console.log(result);
+        if (result === "You win!") {
+            playerScoreVal++;
+            playerScore.innerText = playerScoreVal;
+            //  console.log(playerScoreVal);
+        } else if (result === "Computer wins!") {
+            computerScoreVal++;
+            computerScore.innerText = computerScoreVal;
+        }
+    })
+    scissorsBtn.addEventListener("click", function() {
+        let computer = getComputerChoice();
+        let result = playRound(choices[2], computer);
+        console.log(result);
+        if (result === "You win!") {
+            playerScoreVal++;
+            playerScore.innerText = playerScoreVal;
+            //  console.log(playerScoreVal);
+        } else if (result === "Computer wins!") {
+            computerScoreVal++;
+            computerScore.innerText = computerScoreVal;
+        }
+    })
+
 })
