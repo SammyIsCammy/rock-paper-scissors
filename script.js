@@ -26,13 +26,25 @@ function playRound(playerSelection, computerSelection) {
 };
 
 
-function game() {
-    let playerChoice = prompt("Rock, Paper, or Scissors?!").toLowerCase();
-    console.log(playRound(playerChoice, getComputerChoice()));
-    console.log(playRound(playerChoice, getComputerChoice()));
-    console.log(playRound(playerChoice, getComputerChoice()));
-    console.log(playRound(playerChoice, getComputerChoice()));
-    console.log(playRound(playerChoice, getComputerChoice()));
-}
+// function game() {
+//     let playerChoice = prompt("Rock, Paper, or Scissors?!").toLowerCase();
+//     console.log(playRound(playerChoice, getComputerChoice()));
+//     console.log(playRound(playerChoice, getComputerChoice()));
+//     console.log(playRound(playerChoice, getComputerChoice()));
+//     console.log(playRound(playerChoice, getComputerChoice()));
+//     console.log(playRound(playerChoice, getComputerChoice()));
+// }
 
-game();
+// game();
+
+document.addEventListener("DOMContentLoaded", function() {
+    let rockBtn = document.getElementById("rock-btn");
+    let paperBtn = document.getElementById("paper-btn");
+    let scissorsBtn = document.getElementById("scissors-btn");
+
+    rockBtn.addEventListener("click", function() {
+        let computer = getComputerChoice();
+        let result = playRound(choices[0], computer);
+        console.log(result);
+    })
+})
