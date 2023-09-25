@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rock Paper Scissors</title>
+        <script src="./script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
 
@@ -12,22 +14,21 @@
         <button id="scissors-btn">Scissors</button>
         <br>
         <br>
-        <div class="player">
-            <span>Player Score: </span>
-            <span id="player-score"></span>
+        <div class="row">
+            <div class="column" id="player-column">
+                <span>Player Score: </span>
+                <span id="player-score"></span>
+            </div>
+
+            <div class="column" id="ties-column">
+                <span>Ties: </span>
+                <span id="ties-score"></span>
+            </div>
+
+            <div class="column" id="computer-column">
+                <span>Computer Score: </span>
+                <span id="computer-score"></span>
+            </div>
         </div>
-        <br>
-        <br>
-        <div class="computer">
-            <span>Computer Score: </span>
-            <span id="computer-score"></span>
-        </div>
-        <br>
-        <br>
-        <div class="ties">
-            <span>Ties: </span>
-            <span id="ties-score"></span>
-        </div>
-        <script src="./script.js"></script>
     </body>
 </html>
