@@ -35,6 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let computerScoreVal = 0;
     let tiesScore = document.getElementById("ties-score");
     let tiesScoreVal = 0;
+    let playerAnnouncement = document.getElementById("player-announcement");
+    let computerAnnouncement = document.getElementById("computer-announcement");
+    playerAnnouncement.hidden = true;
+    computerAnnouncement.hidden = true;
     
     function getRoundWinner(result) {
         if (result === "You win!") {
@@ -50,10 +54,27 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function endGame() {
-        if (playerScoreVal === 5 || computerScoreVal === 5) {
+        // if (playerScoreVal === 5 || computerScoreVal === 5) {
+        //     rockBtn.disabled = true;
+        //     paperBtn.disabled = true;
+        //     scissorsBtn.disabled = true;
+        // }
+        if (playerScoreVal === 5) {
             rockBtn.disabled = true;
             paperBtn.disabled = true;
             scissorsBtn.disabled = true;
+            playerAnnouncement.hidden = false;
+            computerAnnouncement.hidden = false;
+            playerAnnouncement.innerText = "YOU WIN!";
+            computerAnnouncement.innerText = "COMPUTER LOST!";
+        } else if (computerScoreVal === 5) {
+            rockBtn.disabled = true;
+            paperBtn.disabled = true;
+            scissorsBtn.disabled = true;
+            playerAnnouncement.hidden = false;
+            computerAnnouncement.hidden = false;
+            playerAnnouncement.innerText = "YOU LOST!";
+            computerAnnouncement.innerText = "COMPUTER WINS!";
         }
     }
 
